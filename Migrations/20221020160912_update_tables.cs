@@ -27,7 +27,7 @@ namespace BasicToDoListApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "List",
+                name: "ItemList",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -72,14 +72,14 @@ namespace BasicToDoListApi.Migrations
                     table.ForeignKey(
                         name: "FK_SubList_List_ListId",
                         column: x => x.ListId,
-                        principalTable: "List",
+                        principalTable: "ItemList",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_List_CategoryId",
-                table: "List",
+                table: "ItemList",
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
@@ -94,7 +94,7 @@ namespace BasicToDoListApi.Migrations
                 name: "SubList");
 
             migrationBuilder.DropTable(
-                name: "List");
+                name: "ItemList");
 
             migrationBuilder.DropTable(
                 name: "Category");

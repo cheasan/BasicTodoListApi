@@ -57,7 +57,7 @@ namespace BasicToDoListApi.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("BasicToDoListApi.Models.List", b =>
+            modelBuilder.Entity("BasicToDoListApi.Models.ItemList", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -102,7 +102,7 @@ namespace BasicToDoListApi.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("List");
+                    b.ToTable("ItemList");
                 });
 
             modelBuilder.Entity("BasicToDoListApi.Models.SubList", b =>
@@ -143,7 +143,7 @@ namespace BasicToDoListApi.Migrations
                     b.ToTable("SubList");
                 });
 
-            modelBuilder.Entity("BasicToDoListApi.Models.List", b =>
+            modelBuilder.Entity("BasicToDoListApi.Models.ItemList", b =>
                 {
                     b.HasOne("BasicToDoListApi.Models.Category", "Category")
                         .WithMany("Lists")
@@ -156,13 +156,13 @@ namespace BasicToDoListApi.Migrations
 
             modelBuilder.Entity("BasicToDoListApi.Models.SubList", b =>
                 {
-                    b.HasOne("BasicToDoListApi.Models.List", "List")
+                    b.HasOne("BasicToDoListApi.Models.ItemList", "ItemList")
                         .WithMany("SubLists")
                         .HasForeignKey("ListId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("List");
+                    b.Navigation("ItemList");
                 });
 
             modelBuilder.Entity("BasicToDoListApi.Models.Category", b =>
@@ -170,7 +170,7 @@ namespace BasicToDoListApi.Migrations
                     b.Navigation("Lists");
                 });
 
-            modelBuilder.Entity("BasicToDoListApi.Models.List", b =>
+            modelBuilder.Entity("BasicToDoListApi.Models.ItemList", b =>
                 {
                     b.Navigation("SubLists");
                 });

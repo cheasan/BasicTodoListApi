@@ -1,6 +1,6 @@
-namespace BasicToDoListApi.Models
+namespace BasicToDoListApi.Models.Entities
 {
-    public class List : BaseEntity
+    public class ItemList : BaseEntity
     {
         public Guid CategoryId { get; set; }
         public string Title { get; set; } = "";

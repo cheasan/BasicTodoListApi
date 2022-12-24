@@ -1,5 +1,6 @@
 using BasicToDoListApi.Core.Repositories;
 using BasicToDoListApi.Data;
+using BasicToDoListApi.Models.Entities;
 
 namespace BasicToDoListApi.Models.Repositories
 {

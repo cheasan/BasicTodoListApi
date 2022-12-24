@@ -1,6 +1,7 @@
 using BasicToDoListApi.Core.DTO;
 using BasicToDoListApi.Data;
 using BasicToDoListApi.Models;
+using BasicToDoListApi.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BasicToDoListApi.Controllers
