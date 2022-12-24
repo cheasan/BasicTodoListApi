@@ -1,4 +1,3 @@
-using BasicToDoListApi.Core.Configurations;
 using BasicToDoListApi.Data;
 using Microsoft.EntityFrameworkCore;
 

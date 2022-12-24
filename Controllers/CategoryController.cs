@@ -1,4 +1,6 @@
-using BasicToDoListApi.Core.Configurations;
+using BasicToDoListApi.Core.DTO;
+using BasicToDoListApi.Data;
+using BasicToDoListApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BasicToDoListApi.Controllers
@@ -14,6 +16,25 @@ namespace BasicToDoListApi.Controllers
         {
             _logger = logger;
             _unitOfWork = unitOfWork;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCategory(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                category.Id = Guid.NewGuid();
+
+                await _unitOfWork.Categories.Add(category);
+                await _unitOfWork.Save();
+
+                return Ok(new StandardResponseDto
+                {
+                    Data = new []{category}
+                });
+            }
+
+            return new JsonResult("Something went wrong") { StatusCode = 500 };
         }
     }
 }

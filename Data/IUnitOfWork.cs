@@ -1,11 +1,11 @@
 using BasicToDoListApi.Models.Repositories;
 
-namespace BasicToDoListApi.Core.Configurations
+namespace BasicToDoListApi.Data
 {
     public interface IUnitOfWork
     {
         ICategoryRepository Categories { get; }
 
-        Task CompleteAsync();
+        Task Save();
     }
 }
